@@ -1,23 +1,24 @@
 /*
 
-Assignment name  : ft_range
-Expected files   : ft_range.c
-Allowed functions: malloc
+課題名：ft_range
+想定されるファイル：ft_range.c
+許可された関数：malloc
 --------------------------------------------------------------------------------
 
-次の関数を書いてください
+次の関数を書いてください。
 
-int     *ft_range(int start, int end);
+int *ft_rrange(int start, int end);
 
 整数の配列を(malloc()で)確保し、その中に連続した値を格納し返す。
-startで始まり、endで終わる値（開始と終了を含む！）であれば 配列の最初の値へのポインタを返す。
+endで始まり、startで終わる値（開始と終了を含む！）であれば 配列の最初の値へのポインタを返す。
+
 
 例:
 
-- (1, 3)の場合は、1, 2, 3を含む配列を返します。
-- (-1, 2)の場合は、-1, 0, 1, 2を含む配列を返します。
+- (1, 3)と入力すると、3、2、1を含む配列を返します。
+- (-1, 2)の場合は、2、1、0、-1を含む配列を返します。
 - (0, 0)の場合は、0を含む配列を返します。
-- (0, -3)の場合は、0、-1、-2、-3 を含む配列を返します。
+- (0, -3)の場合は、-3、-2、-1、0を含む配列が返されます。
 
 */
 
@@ -55,21 +56,21 @@ int	*ft_range(int start, int end)
 	return_num = (int *)malloc(sizeof(int) * len);
 	if (return_num == NULL)
 		return (NULL);
-	if (start < end)
+	if (end < start)
 	{
-		while (start <= end)
+		while (end <= start)
 		{
-			return_num[i] = start;
-			start++;
+			return_num[i] = end;
+			end++;
 			i++;
 		}
 	}
 	else
 	{
-		while (start >= end)
+		while (end >= start)
 		{
-			return_num[i] = start;
-			start--;
+			return_num[i] = end;
+			end--;
 			i++;
 		}
 	}
@@ -81,7 +82,7 @@ int	main()
 {
 	int	*num;
 
-	num = ft_range(0, -3);
+	num = ft_range(1, 3);
 	for (int i = 0; i < 10; i++)
 		printf ("num[%d] = %d\n", i, num[i]);
 }
