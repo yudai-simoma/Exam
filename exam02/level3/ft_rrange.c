@@ -77,12 +77,12 @@ int	*ft_range(int start, int end)
 	return (return_num);
 }
 
-#include <stdio.h>
-int	main()
-{
-	int	*num;
+// #include <stdio.h>
+// int	main()
+// {
+// 	int	*num;
 
-	num = ft_range(1, 3);
-	for (int i = 0; i < 10; i++)
-		printf ("num[%d] = %d\n", i, num[i]);
-}
+// 	num = ft_range(1, 3);
+// 	for (int i = 0; i < 10; i++)
+// 		printf ("num[%d] = %d\n", i, num[i]);
+// }

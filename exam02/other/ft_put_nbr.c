@@ -1,13 +1,17 @@
+#include <unistd.h>
+void ft_putchar_fd(char c, int i)
+{
+	write(i, &c, 1);
+}
+
 static void	ft_putunbr_fd(unsigned int ln, int fd)
 {
-	if (ln == 0)
-		ft_putchar_fd('0', fd);
-	if (ln <= 9 && ln > 0)
-		ft_putchar_fd(ln + 48, fd);
-	else if (ln > 0)
+	if (ln > 9)
 	{
 		ft_putunbr_fd(ln / 10, fd);
-		ft_putchar_fd(ln % 10 + 48, fd);
+		ft_putchar_fd(ln % 10 + '0', fd);
+	} else {
+		ft_putchar_fd(ln + '0', fd);
 	}
 }
 
@@ -23,4 +27,10 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 		ln = n;
 	ft_putunbr_fd(ln, fd);
+}
+
+#include <limits.h>
+int	main()
+{
+	ft_putnbr_fd(10, 1);
 }
