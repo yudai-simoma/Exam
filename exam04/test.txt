@@ -1,0 +1,2 @@
+この文字はtest.txtに書き込まれる
+Hello, World!
