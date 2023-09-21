@@ -261,6 +261,13 @@ int main(int ac, char **av, char **env)
     	    else
     	        i++;
     	}
+		if (ptr)
+			exec_cmds(ptr, env);
+		free_all(ptr);
+	}
+	return (0);
+}
+
 	/*while (ptr)
 	{
 		
@@ -274,9 +281,3 @@ int main(int ac, char **av, char **env)
 	}
 	(void)**env;
 	printf("END\n");*/
-		if (ptr)
-			exec_cmds(ptr, env);
-		free_all(ptr);
-	}
-	return (0);
-}
